@@ -1,6 +1,11 @@
 import { createEmptyEditorState } from './LexicalEditorState';
 import { internalGetActiveEditor } from './LexicalUpdates';
 
+// TODO: analyze this code
+export type KlassConstructor<Cls extends GenericConstructor<any>> =
+  GenericConstructor<InstanceType<Cls>> & { [k in keyof Cls]: Cls[k] };
+type GenericConstructor<T> = new (...args: any[]) => T;
+
 export type EditorThemeClasses = {
   [key: string]: any;
 };
