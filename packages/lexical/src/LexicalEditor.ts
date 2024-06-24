@@ -1,7 +1,9 @@
 import { createEmptyEditorState } from './LexicalEditorState';
 import { internalGetActiveEditor } from './LexicalUpdates';
 
-// TODO: analyze this code
+// First part (GenericConstructor<InstanceType<Cls>>) is to tell that
+// it should be a constructor function.
+// Second part (& { [k in keyof Cls]: Cls[k] }) refers to static props
 export type KlassConstructor<Cls extends GenericConstructor<any>> =
   GenericConstructor<InstanceType<Cls>> & { [k in keyof Cls]: Cls[k] };
 type GenericConstructor<T> = new (...args: any[]) => T;
