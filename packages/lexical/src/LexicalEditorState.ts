@@ -1,8 +1,8 @@
 import { NodeMap } from './LexicalNode';
+import { $createRootNode } from './nodes/LexicalRootNode';
 
 export function createEmptyEditorState(): EditorState {
-  // TODO: instead of empty object, switch with $createRootNode
-  return new EditorState(new Map([['root', {}]]));
+  return new EditorState(new Map([['root', $createRootNode()]]));
 }
 
 export class EditorState {

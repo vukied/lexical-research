@@ -2,6 +2,8 @@ import type { KlassConstructor } from 'lexical';
 
 import invariant from 'shared/invariant';
 
+import { $setNodeKey } from './LexicalUtils';
+
 export type NodeMap = Map<NodeKey, LexicalNode>;
 
 export type NodeKey = string;
@@ -13,6 +15,9 @@ export class LexicalNode {
   ['constructor']!: KlassConstructor<typeof LexicalNode>;
   /** @internal */
   __type: string;
+  /** @internal */
+  //@ts-ignore We set the key in the constructor.
+  __key: string;
 
   // Flow doesn't support abstract classes unfortunately, so we can't _force_
   // subclasses of Node to implement statics. All subclasses of Node should have
@@ -33,7 +38,8 @@ export class LexicalNode {
     );
   }
 
-  constructor() {
+  constructor(key?: NodeKey) {
     this.__type = this.constructor.getType();
+    $setNodeKey(this, key);
   }
 }
