@@ -8,6 +8,7 @@ export type NodeMap = Map<NodeKey, LexicalNode>;
 
 export type NodeKey = string;
 
+// TODO: finish LexicalNode -> then ElementNode -> RootNode
 export class LexicalNode {
   // Allow us to look up the type including static props
   // typeof LexicalNode refers to the constructor function
