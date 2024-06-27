@@ -45,6 +45,20 @@ export class LexicalNode {
     );
   }
 
+  /**
+   * Clones this node, creating a new node with a different key
+   * and adding it to the EditorState (but not attaching it anywhere!). All nodes must
+   * implement this method.
+   *
+   */
+  static clone(_data: unknown): LexicalNode {
+    invariant(
+      false,
+      'LexicalNode: Node %s does not implement .clone().',
+      this.name
+    );
+  }
+
   constructor(key?: NodeKey) {
     this.__type = this.constructor.getType();
     $setNodeKey(this, key);
