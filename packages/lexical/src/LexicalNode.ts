@@ -19,6 +19,12 @@ export class LexicalNode {
   /** @internal */
   //@ts-ignore We set the key in the constructor.
   __key: string;
+  /** @internal */
+  __parent: null | NodeKey;
+  /** @internal */
+  __prev: null | NodeKey;
+  /** @internal */
+  __next: null | NodeKey;
 
   // Flow doesn't support abstract classes unfortunately, so we can't _force_
   // subclasses of Node to implement statics. All subclasses of Node should have
