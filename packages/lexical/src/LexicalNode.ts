@@ -85,7 +85,6 @@ export class LexicalNode {
     );
   }
 
-  // TODO: Analyze importDOM related things
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static importDOM?: () => DOMConversionMap<any> | null;
 
